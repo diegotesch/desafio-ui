@@ -15,9 +15,6 @@ export class EmpresaService {
   constructor(private http: HttpClient) { }
 
   listar(): Observable<Empresa[]> {
-    return this.http.get<Empresa[]>(this.URL_API)
-      .pipe(tap(
-        console.log
-      ));
+    return this.http.get<Empresa[]>(this.URL_API);
   }
 }

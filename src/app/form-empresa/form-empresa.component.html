@@ -1,1 +1,41 @@
-<p>form-empresa works! {{id}}</p>
+<!-- <p>form-empresa works! {{id}}</p> -->
+
+
+<form #frmEmpresa="ngForm" (ngSubmit)="onSubmit(frmEmpresa)" >
+  <div class="ui-g">
+    <div class="ui-g-6">
+      <h2>{{titulo}}</h2>
+    </div>
+  </div>
+
+  <div class="ui-g">
+    <div class="ui-g-6">
+      <span class="ui-float-label ui-fluid">
+        <input id="float-input" type="text" pInputText name="nome" [ngModel]="empresa.nome">
+        <label for="float-input">Nome</label>
+      </span>
+    </div>
+  </div>
+
+  <div class="ui-g">
+    <div class="ui-g-6">
+      <span class="ui-float-label ui-fluid">
+        <input id="float-input" type="text" pInputText name="endereco" [ngModel]="empresa.endereco">
+        <label for="float-input">Endereco</label>
+      </span>
+    </div>
+  </div>
+
+  <div class="ui-g">
+    <div class="ui-g-6">
+      <span class="ui-float-label ui-fluid">
+        <p-inputMask [ngModel]="empresa.cnpj" name="cnpj" mask="99.999.999/9999-99"></p-inputMask>
+        <label for="float-input">CNPJ</label>
+      </span>
+    </div>
+  </div>
+
+  <input type="hidden" name="id" />
+
+  <p-button label="Salvar" class="ui-button-text" id="btNovo" ></p-button>
+</form>

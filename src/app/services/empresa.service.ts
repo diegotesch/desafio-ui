@@ -17,4 +17,8 @@ export class EmpresaService {
   listar(): Observable<Empresa[]> {
     return this.http.get<Empresa[]>(this.URL_API);
   }
+
+  getEmpresa(id:number):Observable<Empresa> {
+    return this.http.get<Empresa>(`${this.URL_API}/${id}`).pipe(tap(console.log));
+  }
 }

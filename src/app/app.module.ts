@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from '@angular/core';
@@ -9,7 +9,8 @@ import {MenuModule} from 'primeng/menu';
 import {TabMenuModule} from 'primeng/tabmenu';
 import {ButtonModule} from 'primeng/button';
 import {TooltipModule} from 'primeng/tooltip';
-import {MenuItem} from 'primeng/api';
+import {InputTextModule} from 'primeng/inputtext';
+import {InputMaskModule} from 'primeng/inputmask';
 
 import { AppComponent } from './app.component';
 import { ListaEmpresasComponent } from './lista-empresas/lista-empresas.component';
@@ -20,13 +21,18 @@ import { FormEmpresaComponent } from './form-empresa/form-empresa.component';
 import { HomeComponent } from './home/home.component';
 import { routing } from './app.routing';
 
+import { CnpjPipe } from './pipes/cnpj.pipe';
+import { CpfPipe } from './pipes/cpf.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
     ListaEmpresasComponent,
     MenuComponent,
     FormEmpresaComponent,
-    HomeComponent
+    HomeComponent,
+    CnpjPipe,
+    CpfPipe
   ],
   imports: [
     BrowserModule,
@@ -38,6 +44,8 @@ import { routing } from './app.routing';
     TabMenuModule,
     ButtonModule,
     TooltipModule,
+    InputTextModule,
+    InputMaskModule,
     routing
   ],
   providers: [

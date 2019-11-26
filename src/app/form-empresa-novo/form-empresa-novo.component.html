@@ -1,0 +1,77 @@
+<p-toast position="top-left" [style]="{marginTop: '80px'}"></p-toast>
+
+<form [formGroup]="form">
+  <p-panel header="{{ 'cadastro de empresas' | uppercase }}">
+    <div class="ui-g">
+      <div class="ui-g-6">
+        <span class="ui-float-label ui-fluid">
+          <input id="float-input" type="text" pInputText formControlName="nome" id="nome" [ngClass]="{ 'is-invalid' : submitted && hasError('nome') }">
+          <label for="float-input">Nome</label>
+        </span>
+      </div>
+    </div>
+
+    <div class="ui-g">
+      <div class="ui-g-6">
+        <span class="ui-float-label ui-fluid">
+          <input id="float-input" type="text" pInputText formControlName="endereco" [ngClass]="{ 'is-invalid' : submitted && hasError('endereco') }" >
+          <label for="float-input">Endereco</label>
+        </span>
+      </div>
+    </div>
+
+    <div class="ui-g">
+      <div class="ui-g-6">
+        <span class="ui-float-label ui-fluid">
+          <p-inputMask  formControlName="cnpj" mask="99.999.999/9999-99" [ngClass]="{ 'is-invalid' : submitted && hasError('cnpj') }"></p-inputMask>
+          <label for="float-input">CNPJ</label>
+        </span>
+      </div>
+    </div>
+
+    <!-- <input type="hidden" formControlName="id" /> -->
+
+    <p-button label="Salvar" class="ui-button-text botaoFrm" (click)="onSubmit()" ></p-button>
+    <p-button label="Cancelar" class="ui-button-text botaoFrm" (click)="onCancel()" ></p-button>
+  </p-panel>
+</form>
+
+<!--
+<form #frmEmpresa="ngForm" (ngSubmit)="onSubmit(frmEmpresa)" >
+    <div class="ui-g">
+      <div class="ui-g-6">
+        <h2>{{titulo}}</h2>
+      </div>
+    </div>
+
+    <div class="ui-g">
+      <div class="ui-g-6">
+        <span class="ui-float-label ui-fluid">
+          <input id="float-input" type="text" pInputText name="nome" >
+          <label for="float-input">Nome</label>
+        </span>
+      </div>
+    </div>
+
+    <div class="ui-g">
+      <div class="ui-g-6">
+        <span class="ui-float-label ui-fluid">
+          <input id="float-input" type="text" pInputText name="endereco" >
+          <label for="float-input">Endereco</label>
+        </span>
+      </div>
+    </div>
+
+    <div class="ui-g">
+      <div class="ui-g-6">
+        <span class="ui-float-label ui-fluid">
+          <p-inputMask  name="cnpj" mask="99.999.999/9999-99"></p-inputMask>
+          <label for="float-input">CNPJ</label>
+        </span>
+      </div>
+    </div>
+
+    <input type="hidden" name="id" />
+
+    <p-button label="Salvar" class="ui-button-text" id="btNovo" ></p-button>
+  </form> -->

@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { EmpresaService } from '../services/empresa.service';
 
 import { Empresa } from '../models/Empresa';
+import { HttpClient } from 'selenium-webdriver/http';
 
 @Component({
   selector: 'app-form-empresa',
@@ -16,9 +17,11 @@ export class FormEmpresaComponent implements OnInit {
   id: number;
   inscricao: Subscription;
   empresa: Empresa;
-  titulo: string;
 
-  constructor(private route: ActivatedRoute, private empresaService: EmpresaService) {
+  constructor(
+    private route: ActivatedRoute,
+    private empresaService: EmpresaService
+    ) {
   }
 
   ngOnInit() {
@@ -28,7 +31,7 @@ export class FormEmpresaComponent implements OnInit {
     this.empresaService.getEmpresa(this.id)
       .subscribe(res => this.empresa = res);
 
-    this.titulo = !this.id ? "Cadastrar" : "Editar";
+
   }
 
   ngOnDestroy(){
@@ -38,7 +41,7 @@ export class FormEmpresaComponent implements OnInit {
   onSubmit(form){
     console.log(form);
 
-    console.log(this.empresa);
+    // this.empresaService.storeOrEdit();
   }
 
 }

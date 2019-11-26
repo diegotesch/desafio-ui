@@ -1,0 +1,13 @@
+.is-invalid{
+  background-color: #e100006b;
+  color: #f00;
+  border-color: #f00;
+}
+
+input{
+  margin-bottom: 10px;
+}
+
+.botaoFrm{
+  margin-right: 5px;
+}

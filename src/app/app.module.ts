@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from '@angular/core';
 
@@ -11,6 +11,10 @@ import {ButtonModule} from 'primeng/button';
 import {TooltipModule} from 'primeng/tooltip';
 import {InputTextModule} from 'primeng/inputtext';
 import {InputMaskModule} from 'primeng/inputmask';
+import {PanelModule} from 'primeng/panel';
+import {ToastModule} from 'primeng/toast';
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
 
 import { AppComponent } from './app.component';
 import { ListaEmpresasComponent } from './lista-empresas/lista-empresas.component';
@@ -23,6 +27,7 @@ import { routing } from './app.routing';
 
 import { CnpjPipe } from './pipes/cnpj.pipe';
 import { CpfPipe } from './pipes/cpf.pipe';
+import { FormEmpresaNovoComponent } from './form-empresa-novo/form-empresa-novo.component';
 
 @NgModule({
   declarations: [
@@ -32,12 +37,14 @@ import { CpfPipe } from './pipes/cpf.pipe';
     FormEmpresaComponent,
     HomeComponent,
     CnpjPipe,
-    CpfPipe
+    CpfPipe,
+    FormEmpresaNovoComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     TableModule,
     MenuModule,
@@ -46,6 +53,10 @@ import { CpfPipe } from './pipes/cpf.pipe';
     TooltipModule,
     InputTextModule,
     InputMaskModule,
+    PanelModule,
+    ToastModule,
+    MessagesModule,
+    MessageModule,
     routing
   ],
   providers: [

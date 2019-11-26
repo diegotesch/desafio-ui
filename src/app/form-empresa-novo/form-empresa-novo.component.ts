@@ -1,0 +1,71 @@
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
+
+import { EmpresaService } from '../services/empresa.service';
+
+import { Empresa } from '../models/Empresa';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import {SelectItem} from 'primeng/api';
+import {MessageService} from 'primeng/api';
+
+@Component({
+  selector: 'app-form-empresa-novo',
+  templateUrl: './form-empresa-novo.component.html',
+  styleUrls: ['./form-empresa-novo.component.css'],
+  providers: [MessageService]
+})
+export class FormEmpresaNovoComponent implements OnInit {
+
+  form: FormGroup;
+  submitted: boolean;
+
+
+  inscricao: Subscription;
+  acao: string;
+
+  constructor(
+    private route: ActivatedRoute,
+    private formBuilder: FormBuilder,
+    private messageService: MessageService
+  ) { }
+
+  ngOnInit() {
+    this.inscricao = this.route.params
+      .subscribe((params:any) => this.acao = params.acao);
+
+    // console.log(this.acao);
+    this.form = this.formBuilder.group({
+      nome: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
+      endereco: [null, [Validators.required, Validators.minLength(5), Validators.maxLength(255)]],
+      cnpj: [null, [Validators.required, Validators.minLength(18), Validators.maxLength(18)]]
+    })
+  }
+
+  hasError(field:string ) {
+    return this.form.get(field).errors;
+  }
+
+  onSubmit(){
+
+    this.submitted = true;
+    console.log(this.form.value);
+
+    if(this.form.valid){
+      this.messageService.add({severity:'info', summary:'Cadastro de Empresa', detail:'Dados Enviados'});
+
+      return;
+    }
+
+    this.messageService.add({severity:'error', summary:'Cadastro de Empresa', detail:'Falha ao enviar dados'});
+
+
+  }
+
+  onCancel(){
+    this.submitted = false;
+    this.form.reset();
+    console.log('cancel');
+  }
+
+}

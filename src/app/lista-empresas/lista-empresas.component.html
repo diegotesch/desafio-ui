@@ -18,7 +18,7 @@
               <td>{{empresa.endereco}}</td>
               <td>{{empresa.cnpj}}</td>
               <td>
-                  <p-button icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top" class="ui-button-icon btAction" ></p-button>
+                  <p-button icon="pi pi-pencil" [routerLink]="[empresa.id]" pTooltip="Editar" tooltipPosition="top" class="ui-button-icon btAction" ></p-button>
                   <p-button icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top" class="ui-button-icon btAction" ></p-button>
               </td>
           </tr>

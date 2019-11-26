@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { Empresa } from '../models/Empresa';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { tap, take } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
 
@@ -18,6 +18,10 @@ export class EmpresaService {
 
   listar(): Observable<Empresa[]> {
     return this.http.get<Empresa[]>(this.API);
+  }
+
+  create(empresa){
+    return this.http.post(this.API, empresa).pipe(take(1));
   }
 
   getEmpresa(id:number):Observable<Empresa> {

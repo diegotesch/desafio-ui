@@ -8,6 +8,7 @@ import { Empresa } from '../models/Empresa';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import {SelectItem} from 'primeng/api';
 import {MessageService} from 'primeng/api';
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-form-empresa-novo',
@@ -27,14 +28,15 @@ export class FormEmpresaNovoComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private empresaService: EmpresaService,
+    private location: Location
   ) { }
 
   ngOnInit() {
     this.inscricao = this.route.params
       .subscribe((params:any) => this.acao = params.acao);
 
-    // console.log(this.acao);
     this.form = this.formBuilder.group({
       nome: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
       endereco: [null, [Validators.required, Validators.minLength(5), Validators.maxLength(255)]],
@@ -50,16 +52,19 @@ export class FormEmpresaNovoComponent implements OnInit {
 
     this.submitted = true;
     console.log(this.form.value);
-
     if(this.form.valid){
-      this.messageService.add({severity:'info', summary:'Cadastro de Empresa', detail:'Dados Enviados'});
 
+      this.empresaService.create(this.form.value).subscribe(
+        success => {
+          this.messageService.add({severity:'success', summary:'Cadastro de Empresa', detail:'Empresa cadastrada com sucesso!'});
+          setTimeout(()=>this.location.back(), 2000);
+        },
+        error => this.messageService.add({severity:'error', summary:'Erro ao cadastrar', detail:error})
+      );
       return;
     }
 
     this.messageService.add({severity:'error', summary:'Cadastro de Empresa', detail:'Falha ao enviar dados'});
-
-
   }
 
   onCancel(){

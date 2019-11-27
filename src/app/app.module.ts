@@ -29,6 +29,7 @@ import { routing } from './app.routing';
 import { CnpjPipe } from './pipes/cnpj.pipe';
 import { CpfPipe } from './pipes/cpf.pipe';
 import { FormEmpresaNovoComponent } from './form-empresa-novo/form-empresa-novo.component';
+import { ListaPessoasComponent } from './lista-pessoas/lista-pessoas.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { FormEmpresaNovoComponent } from './form-empresa-novo/form-empresa-novo.
     HomeComponent,
     CnpjPipe,
     CpfPipe,
-    FormEmpresaNovoComponent
+    FormEmpresaNovoComponent,
+    ListaPessoasComponent
   ],
   imports: [
     BrowserModule,

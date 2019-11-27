@@ -18,7 +18,7 @@ export class MenuComponent implements OnInit {
     this.items = [
       {label: 'Home', icon: 'pi pi-home', link: ''},
       {label: 'Empresas', icon: 'pi pi-briefcase', link : '/empresas'},
-      // {label: 'Teste', icon: 'pi pi-users', link: '/teste'}
+      {label: 'Pessoas', icon: 'pi pi-users', link: '/pessoas'},
     ];
 
     this.activeItem = this.items[0];

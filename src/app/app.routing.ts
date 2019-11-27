@@ -5,9 +5,10 @@ import { HomeComponent } from "./home/home.component";
 import { ListaEmpresasComponent } from "./lista-empresas/lista-empresas.component";
 import { FormEmpresaNovoComponent } from "./form-empresa-novo/form-empresa-novo.component";
 import { EmpresaResolverGuard } from "./guards/empresa-resolver.guard";
+import { ListaPessoasComponent } from './lista-pessoas/lista-pessoas.component';
 
 const app_routes: Routes = [
-  { path: "", component: HomeComponent },
+  { path: "home", component: HomeComponent },
   { path: "empresas", component: ListaEmpresasComponent },
   {
     path: "empresas/:acao",
@@ -22,7 +23,9 @@ const app_routes: Routes = [
     resolve: {
       empresa: EmpresaResolverGuard
     }
-  }
+  },
+  { path: "pessoas", component: ListaPessoasComponent },
+  { path: "", redirectTo: "/home", pathMatch: "full" }
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(app_routes);

@@ -16,17 +16,29 @@ export class EmpresaService {
 
   constructor(private http: HttpClient) { }
 
-  listar(): Observable<Empresa[]> {
+  public listar(): Observable<Empresa[]> {
     return this.http.get<Empresa[]>(this.API);
   }
 
-  create(empresa){
+  private create(empresa){
     return this.http.post(this.API, empresa).pipe(take(1));
   }
 
-  getEmpresa(id:number):Observable<Empresa> {
-    return this.http.get<Empresa>(`${this.API}/${id}`).pipe(tap(console.log));
+  private update(empresa){
+    return this.http.put(this.API, empresa).pipe(take(1));
   }
 
+  public getById(id:number):Observable<Empresa> {
+    return this.http.get<Empresa>(`${this.API}/${id}`).pipe(take(1));
+  }
 
+  public save(empresa){
+    if(empresa.id)
+      return this.update(empresa);
+    return this.create(empresa);
+  }
+
+  public remove(id:number){
+    return this.http.delete(`${this.API}/${id}`).pipe(take(1));
+  }
 }

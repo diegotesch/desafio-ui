@@ -15,13 +15,14 @@ import {PanelModule} from 'primeng/panel';
 import {ToastModule} from 'primeng/toast';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmationService} from 'primeng/api';
 
 import { AppComponent } from './app.component';
 import { ListaEmpresasComponent } from './lista-empresas/lista-empresas.component';
 
 import { EmpresaService } from './services/empresa.service';
 import { MenuComponent } from './menu/menu.component';
-import { FormEmpresaComponent } from './form-empresa/form-empresa.component';
 import { HomeComponent } from './home/home.component';
 import { routing } from './app.routing';
 
@@ -34,7 +35,6 @@ import { FormEmpresaNovoComponent } from './form-empresa-novo/form-empresa-novo.
     AppComponent,
     ListaEmpresasComponent,
     MenuComponent,
-    FormEmpresaComponent,
     HomeComponent,
     CnpjPipe,
     CpfPipe,
@@ -57,10 +57,12 @@ import { FormEmpresaNovoComponent } from './form-empresa-novo/form-empresa-novo.
     ToastModule,
     MessagesModule,
     MessageModule,
+    ConfirmDialogModule,
     routing
   ],
   providers: [
     EmpresaService,
+    ConfirmationService
   ],
   bootstrap: [AppComponent]
 })

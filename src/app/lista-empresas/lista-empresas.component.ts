@@ -4,6 +4,7 @@ import { EmpresaService } from '../services/empresa.service';
 
 import { Empresa } from '../models/Empresa';
 import { Observable } from 'rxjs';
+import {ConfirmationService} from 'primeng/api';
 
 @Component({
   selector: 'app-lista-empresas',
@@ -15,12 +16,30 @@ export class ListaEmpresasComponent implements OnInit {
   empresas: Empresa[];
   empresas$: Observable<Empresa[]>;
 
-  constructor(private empresaService: EmpresaService) { }
+  constructor(
+    private empresaService: EmpresaService,
+    private confirmationService: ConfirmationService
+    ) { }
+
+  confirmDelete(empresa: Empresa) {
+    this.confirmationService.confirm({
+        message: `<p>Tem certeza de que deseja excluir a Empresa ${empresa.nome}?</p>
+        <p><strong>Obs:</strong> Todos os funcionários também serão excluídos</p>`,
+        accept: () => {
+          this.empresaService.remove(empresa.id).subscribe(
+            success => this.onRefresh(),
+            error => console.error(error)
+          );
+        }
+    });
+  }
 
   ngOnInit() {
-    // this.empresaService.listar()
-    //   .subscribe(res => this.empresas = res);
-    setTimeout(() => this.empresas$ = this.empresaService.listar(), 2000);
+    setTimeout(() => this.onRefresh(), 1000);
+  }
+
+  onRefresh() {
+    this.empresas$ = this.empresaService.listar()
   }
 
 }

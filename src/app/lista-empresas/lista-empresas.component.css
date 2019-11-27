@@ -9,3 +9,7 @@
 .colActions{
   width: 101px;
 }
+
+.loading p{
+  text-align: center;
+}

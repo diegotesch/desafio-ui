@@ -3,8 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { EmpresaService } from '../services/empresa.service';
 
 import { Empresa } from '../models/Empresa';
+import { Pessoa } from '../models/Pessoa';
 import { Observable } from 'rxjs';
 import {ConfirmationService} from 'primeng/api';
+
 
 @Component({
   selector: 'app-lista-empresas',
@@ -40,6 +42,10 @@ export class ListaEmpresasComponent implements OnInit {
 
   onRefresh() {
     this.empresas$ = this.empresaService.listar()
+  }
+
+  listarFuncionarios(empresa: Empresa) {
+    console.log(empresa)
   }
 
 }

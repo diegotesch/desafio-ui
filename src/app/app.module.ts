@@ -17,6 +17,8 @@ import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
+import {CalendarModule} from 'primeng/calendar';
+import {DropdownModule} from 'primeng/dropdown';
 
 import { AppComponent } from './app.component';
 import { ListaEmpresasComponent } from './lista-empresas/lista-empresas.component';
@@ -30,6 +32,8 @@ import { CnpjPipe } from './pipes/cnpj.pipe';
 import { CpfPipe } from './pipes/cpf.pipe';
 import { FormEmpresaNovoComponent } from './form-empresa-novo/form-empresa-novo.component';
 import { ListaPessoasComponent } from './lista-pessoas/lista-pessoas.component';
+import { FormPessoaComponent } from './form-pessoa/form-pessoa.component';
+import { ListaFuncionariosEmpresaComponent } from './lista-funcionarios-empresa/lista-funcionarios-empresa.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +44,9 @@ import { ListaPessoasComponent } from './lista-pessoas/lista-pessoas.component';
     CnpjPipe,
     CpfPipe,
     FormEmpresaNovoComponent,
-    ListaPessoasComponent
+    ListaPessoasComponent,
+    FormPessoaComponent,
+    ListaFuncionariosEmpresaComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +66,8 @@ import { ListaPessoasComponent } from './lista-pessoas/lista-pessoas.component';
     MessagesModule,
     MessageModule,
     ConfirmDialogModule,
+    CalendarModule,
+    DropdownModule,
     routing
   ],
   providers: [

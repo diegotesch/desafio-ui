@@ -24,6 +24,7 @@
                 <td>
                     <p-button icon="pi pi-pencil" [routerLink]="['editar', empresa.id]" pTooltip="Editar" tooltipPosition="top" class="ui-button-icon btAction" ></p-button>
                     <p-button icon="pi pi-trash" pTooltip="Excluir" (click)="confirmDelete(empresa)" tooltipPosition="top" class="ui-button-icon btAction" ></p-button>
+                    <p-button icon="pi pi-users" pTooltip="Funcionários" [routerLink]="['/empresa', empresa.id, 'funcionarios']" tooltipPosition="top" class="ui-button-icon btAction" ></p-button>
                 </td>
             </tr>
         </ng-template>
@@ -31,11 +32,11 @@
     </div>
   </ng-container>
   <ng-template #loading >
-      <div class="ui-g-12 loading">
-        <div class="ui-g-2 ui-g-offset-5">
-            <p><i class="pi pi-spin pi-spinner" style="font-size: 3em"></i></p>
-            <p>Carregando Empresas...</p>
-        </div>
+    <div class="ui-g-12 loading">
+      <div class="ui-g-2 ui-g-offset-5">
+          <p><i class="pi pi-spin pi-spinner" style="font-size: 3em"></i></p>
+          <p>Carregando Empresas...</p>
       </div>
-    </ng-template>
+    </div>
+  </ng-template>
 </div>

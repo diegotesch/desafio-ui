@@ -20,6 +20,10 @@ export class EmpresaService {
     return this.http.get<Empresa[]>(this.API);
   }
 
+  public getDropDown(): Observable<Empresa[]> {
+    return this.http.get<Empresa[]>(`${this.API}/dropdown`).pipe(take(1));
+  }
+
   private create(empresa){
     return this.http.post(this.API, empresa).pipe(take(1));
   }

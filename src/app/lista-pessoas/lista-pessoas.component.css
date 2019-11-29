@@ -10,6 +10,15 @@
   width: 101px;
 }
 
+td{
+  text-align: center;
+  font-weight: bold;
+}
+
+tr td:first-child{
+  text-align: left;
+}
+
 .loading p{
   text-align: center;
 }

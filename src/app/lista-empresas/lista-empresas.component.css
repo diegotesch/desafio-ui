@@ -7,7 +7,16 @@
 }
 
 .colActions{
-  width: 101px;
+  width: 140px;
+}
+
+td{
+  text-align: center;
+  font-weight: bold;
+}
+
+tr td:first-child{
+  text-align: left;
 }
 
 .loading p{

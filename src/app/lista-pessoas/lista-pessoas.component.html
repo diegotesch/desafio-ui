@@ -1,5 +1,8 @@
 
 <div class="ui-g">
+  <p-confirmDialog header="Confirmação" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+
+
   <ng-container *ngIf="pessoas$ | async as pessoas; else loading">
     <div class="ui-g-12">
         <p-button label="Novo" [routerLink]="['novo']" class="ui-button-text" id="btNovo" ></p-button>
@@ -20,7 +23,7 @@
           <tr>
             <td>{{pessoa.nome}}</td>
             <td>{{pessoa.cpf | cpf}}</td>
-            <td>{{pessoa.dataNascimento}}</td>
+            <td>{{pessoa.dataNascimento | date:'dd/MM/y'}}</td>
             <td>
               <p-button icon="pi pi-pencil" [routerLink]="['editar', pessoa.id]" pTooltip="Editar" tooltipPosition="top" class="ui-button-icon btAction" ></p-button>
               <p-button icon="pi pi-trash" pTooltip="Excluir" (click)="confirmDelete(pessoa)" tooltipPosition="top" class="ui-button-icon btAction" ></p-button>

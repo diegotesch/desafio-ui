@@ -31,6 +31,8 @@ export class FormEmpresaNovoComponent implements OnInit {
   inscricao: Subscription;
 
 
+
+
   constructor(
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
@@ -132,7 +134,7 @@ export class FormEmpresaNovoComponent implements OnInit {
   onCancel(){
     this.submitted = false;
     this.form.reset();
-    console.log('cancel');
+    this.location.back();
   }
 
 }

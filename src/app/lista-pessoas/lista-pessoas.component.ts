@@ -19,6 +19,19 @@ export class ListaPessoasComponent implements OnInit {
     private confirmationService: ConfirmationService
   ) { }
 
+  confirmDelete(pessoa: Pessoa) {
+    console.log(pessoa);
+    this.confirmationService.confirm({
+        message: `<p>Tem certeza de que deseja excluir a Pessoa ${pessoa.nome}?</p>`,
+        accept: () => {
+          this.pessoaService.remove(pessoa.id).subscribe(
+            success => this.onRefresh(),
+            error => console.error(error)
+          );
+        }
+    });
+  }
+
   ngOnInit() {
     setTimeout(() => this.onRefresh(), 1000);
   }

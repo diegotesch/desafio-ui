@@ -7,8 +7,6 @@ services:
     restart: always
     ports:
       - '3306:3306'
-    environment: 
+    environment:
       - MYSQL_ROOT_PASSWORD=root
-    volumes: 
-      - ~/mysql:/var/lib/mysql
     network_mode: host

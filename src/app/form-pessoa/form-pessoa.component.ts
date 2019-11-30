@@ -7,7 +7,6 @@ import { ActivatedRoute } from '@angular/router';
 import { EmpresaService } from '../services/empresa.service';
 import { PessoaService } from '../services/pessoa.service';
 import { Empresa } from '../models/Empresa';
-import { Pessoa } from '../models/Pessoa';
 
 import {MessageService} from 'primeng/api';
 

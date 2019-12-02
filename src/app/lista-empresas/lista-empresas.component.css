@@ -22,3 +22,7 @@ tr td:first-child{
 .loading p{
   text-align: center;
 }
+
+.empresa-details img{
+  float: left;
+}

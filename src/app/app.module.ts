@@ -19,6 +19,7 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
 import {CalendarModule} from 'primeng/calendar';
 import {DropdownModule} from 'primeng/dropdown';
+import {DataViewModule} from 'primeng/dataview';
 
 import { AppComponent } from './app.component';
 import { ListaEmpresasComponent } from './lista-empresas/lista-empresas.component';
@@ -68,6 +69,7 @@ import { ListaFuncionariosEmpresaComponent } from './lista-funcionarios-empresa/
     ConfirmDialogModule,
     CalendarModule,
     DropdownModule,
+    DataViewModule,
     routing
   ],
   providers: [

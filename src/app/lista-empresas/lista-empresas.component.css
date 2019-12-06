@@ -23,6 +23,11 @@ tr td:first-child{
   text-align: center;
 }
 
+.empresa-details{
+  padding: 15px 0;
+  border-bottom: 2px solid #f4f4f4;
+}
+
 .empresa-details img{
   float: left;
 }

@@ -47,22 +47,10 @@ export class ListaEmpresasComponent implements OnInit {
 
   ngOnInit() {
     this.onRefresh();
-    // this.empresas$.subscribe(
-    //   empresas => {
-    //     return empresas.forEach((empresa: Empresa) => {
-    //       empresa['imagem'] = this.getImage(empresa.idArquivo);
-    //       return empresa;
-    //     }
-
-    //     );
-    //   });
-
-    // this.imagem$ = this.imagesService.getImagem(this.empresas$.idArquivo);
   }
 
   onRefresh() {
     this.empresas$ = this.empresaService.listWhithFiles()
-    // this.empresas$ = this.empresaService.listar()
   }
 
   getImage(id:number){
@@ -80,6 +68,10 @@ export class ListaEmpresasComponent implements OnInit {
 
   convertForBase64(byteImg){
     return 'data:image/png;base64,'+byteImg;
+  }
+
+  checkImage(file){
+    return file ? true : false;
   }
 
 }

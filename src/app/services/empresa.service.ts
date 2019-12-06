@@ -54,12 +54,4 @@ export class EmpresaService {
   public remove(id:number){
     return this.http.delete(`${this.API}/${id}`).pipe(take(1));
   }
-
-  // public uploadAndSave(files: Set<File>, url: string){
-
-  //   const formData = new FormData();
-  //   formData.append('file', file, files.name);
-
-  //   const request = new HttpRequest('PUT', url, formData);
-  // }
 }

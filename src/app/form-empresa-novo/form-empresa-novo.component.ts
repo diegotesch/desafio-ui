@@ -41,24 +41,7 @@ export class FormEmpresaNovoComponent implements OnInit {
     private location: Location
   ) { }
 
-  // console.log(this.route.params);
-
   ngOnInit() {
-    // this.inscricao = this.route.params
-    //   .subscribe((params:any) => {
-    //   this.acao = params.acao;
-    //   this.idEmpresa = params.id;
-    //   const empresa$ = this.empresaService.getById(this.idEmpresa);
-    //   empresa$.subscribe(empresa => this.updateForm(empresa));
-    // });
-
-    // this.route.params
-    //   .pipe(
-    //     map((params:any) => params['acao']),
-    //     switchMap(acao => this.getTitle(acao))
-    //   )
-    //   .subscribe(titulo => this.title = titulo);
-
     const empresa = this.route.snapshot.data['empresa'];
 
     this.form = this.formBuilder.group({
@@ -71,14 +54,6 @@ export class FormEmpresaNovoComponent implements OnInit {
     this.title = this.getTitle(empresa.nome);
   }
 
-  // updateForm(empresa) {
-  //   this.form.patchValue({
-  //     id: empresa.id,
-  //     nome: empresa.nome,
-  //     endereco: empresa.endereco,
-  //     cnpj: empresa.cnpj
-  //   })
-  // }
   getTitle(nome:any):string {
     if(nome)
       return `Atualizar Empresa: ${nome}`;

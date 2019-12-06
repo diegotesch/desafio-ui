@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Subscription, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 
 import { Empresa } from '../models/Empresa';
@@ -20,7 +20,6 @@ export class ImagemEmpresaUploadComponent implements OnInit {
 
   public empresa: Empresa;
   public empresa$: Observable<Empresa>;
-  private idEmpresa: Number;
   public teste: any;
 
   public files: File;
@@ -34,8 +33,6 @@ export class ImagemEmpresaUploadComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.idEmpresa = this.route.snapshot.params.id;
-
     this.route.params.pipe(
       map((params: any) => params['id']),
       switchMap(id => this.empresaService.getById(id))

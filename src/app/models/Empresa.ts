@@ -3,5 +3,6 @@ export interface Empresa {
   nome: string;
   endereco: string;
   cnpj: string;
-  idArquivo: number;
+  idArquivo?: number;
+  file?: Blob;
 }

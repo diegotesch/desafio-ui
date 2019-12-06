@@ -13,7 +13,8 @@
               <div (mouseover)="alterar=true"
                 (mouseout)="alterar=false"
                 [ngClass]="alterar ? 'alterar' : ''">
-                <img  [src]="convertForBase64(empresa.arquivo.file)" width="150" height="150" >
+                <img *ngIf="!checkImage(empresa.file)" src="assets/images/logo-demo.jpg" width="150" height="150" />
+                <img *ngIf="checkImage(empresa.file)"  [src]="convertForBase64(empresa.file)" width="150" height="150" >
                 <div [ngClass]="!alterar ? 'uploadHidden' : 'upload'" (click)="doUpload(empresa.id)" >
                   <i class="pi pi-upload"></i>
                   <p>{{ "alterar imagem" | uppercase }}</p>

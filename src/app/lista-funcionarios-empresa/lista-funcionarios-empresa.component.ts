@@ -16,7 +16,6 @@ import { Pessoa } from '../models/Pessoa';
 export class ListaFuncionariosEmpresaComponent implements OnInit {
 
   public funcionarios: Pessoa[];
-  // public funcionarios$: Observable<Pessoa[]>;
   inscricao: Subscription;
 
 

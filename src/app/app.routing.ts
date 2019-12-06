@@ -9,6 +9,7 @@ import { ListaPessoasComponent } from "./lista-pessoas/lista-pessoas.component";
 import { FormPessoaComponent } from "./form-pessoa/form-pessoa.component";
 import { PessoaResolverGuard } from "./guards/pessoa-resolver.guard";
 import { ListaFuncionariosEmpresaComponent } from "./lista-funcionarios-empresa/lista-funcionarios-empresa.component";
+import { ImagemEmpresaUploadComponent } from './imagem-empresa-upload/imagem-empresa-upload.component';
 
 const app_routes: Routes = [
   { path: "home", component: HomeComponent },
@@ -27,6 +28,7 @@ const app_routes: Routes = [
       empresa: EmpresaResolverGuard
     }
   },
+  { path: "empresa/upload/:id", component: ImagemEmpresaUploadComponent },
   {
     path: "empresa/:id/funcionarios",
     component: ListaFuncionariosEmpresaComponent

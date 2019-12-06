@@ -26,3 +26,37 @@ tr td:first-child{
 .empresa-details img{
   float: left;
 }
+
+.alterar:hover img{
+  opacity: 0.3;
+}
+
+.uploadHidden, .upload i, .upload p{
+  display: none;
+  transition: 0.5s all;
+}
+
+.alterar:hover .upload{
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  z-index: 99999;
+  cursor: pointer;
+}
+
+.alterar:hover .upload i{
+  font-size: 4.5em;
+  color: #555;
+  display: block;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.alterar:hover .upload p{
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  display: block;
+}
+
+

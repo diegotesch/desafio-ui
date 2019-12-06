@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpRequest } from '@angular/common/http';
 
 import { Empresa } from '../models/Empresa';
 import { Observable } from 'rxjs';
 import { tap, take } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
+import { Form } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -20,12 +21,20 @@ export class EmpresaService {
     return this.http.get<Empresa[]>(this.API);
   }
 
+  public listWhithFiles() : Observable<Empresa[]> {
+    return this.http.get<Empresa[]>(`${this.API}/files`);
+  }
+
   public getDropDown(): Observable<Empresa[]> {
     return this.http.get<Empresa[]>(`${this.API}/dropdown`).pipe(take(1));
   }
 
   private create(empresa){
     return this.http.post(this.API, empresa).pipe(take(1));
+  }
+
+  public upload(formData: any){
+    return this.http.post(`${this.API}/upload`, formData);
   }
 
   private update(empresa){
@@ -45,4 +54,12 @@ export class EmpresaService {
   public remove(id:number){
     return this.http.delete(`${this.API}/${id}`).pipe(take(1));
   }
+
+  // public uploadAndSave(files: Set<File>, url: string){
+
+  //   const formData = new FormData();
+  //   formData.append('file', file, files.name);
+
+  //   const request = new HttpRequest('PUT', url, formData);
+  // }
 }

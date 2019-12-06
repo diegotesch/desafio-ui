@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
+import {Router} from "@angular/router"
 
 import { EmpresaService } from '../services/empresa.service';
 import { Empresa } from '../models/Empresa';
 
 import { Observable } from 'rxjs';
 import {ConfirmationService} from 'primeng/api';
+import { ImagesService } from '../services/images.service';
+import { Imagem } from '../models/Imagem';
 
 
 @Component({
@@ -15,11 +19,17 @@ import {ConfirmationService} from 'primeng/api';
 export class ListaEmpresasComponent implements OnInit {
 
   empresas: Empresa[];
+  imagem: any = [];
   empresas$: Observable<Empresa[]>;
+  imagem$: Observable<Imagem>;
+  public alterar: Boolean;
 
   constructor(
     private empresaService: EmpresaService,
-    private confirmationService: ConfirmationService
+    private imagesService: ImagesService,
+    private confirmationService: ConfirmationService,
+    private location: Location,
+    private router: Router
     ) { }
 
   confirmDelete(empresa: Empresa) {
@@ -36,15 +46,40 @@ export class ListaEmpresasComponent implements OnInit {
   }
 
   ngOnInit() {
-    setTimeout(() => this.onRefresh(), 1000);
+    this.onRefresh();
+    // this.empresas$.subscribe(
+    //   empresas => {
+    //     return empresas.forEach((empresa: Empresa) => {
+    //       empresa['imagem'] = this.getImage(empresa.idArquivo);
+    //       return empresa;
+    //     }
+
+    //     );
+    //   });
+
+    // this.imagem$ = this.imagesService.getImagem(this.empresas$.idArquivo);
   }
 
   onRefresh() {
-    this.empresas$ = this.empresaService.listar()
+    this.empresas$ = this.empresaService.listWhithFiles()
+    // this.empresas$ = this.empresaService.listar()
   }
 
-  listarFuncionarios(empresa: Empresa) {
-    console.log(empresa)
+  getImage(id:number){
+    return this.imagesService.getImage(id)
+      .subscribe((imagem) => imagem);
+  }
+
+  doUpload(id:Number){
+    this.router.navigate(['/empresa', 'upload', id]);
+  }
+
+  alterarImagem(){
+    this.alterar = true;
+  }
+
+  convertForBase64(byteImg){
+    return 'data:image/png;base64,'+byteImg;
   }
 
 }

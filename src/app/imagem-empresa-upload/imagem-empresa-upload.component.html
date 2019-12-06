@@ -1,0 +1,15 @@
+<p-toast position="top-right" [style]="{marginTop: '80px'}"></p-toast>
+
+<div class="ui-g">
+  <!-- {{empresa | json}} -->
+  <div class="ui-g-8 ui-g-offset-2">
+    <form>
+      <div class="ui-g">
+        <div class="ui-g-12">
+          <h3 class="titulo">{{empresa.nome | uppercase}} - UPLOAD DE IMAGEM</h3>
+        </div>
+      </div>
+      <p-fileUpload name="file" #file customUpload="true" (uploadHandler)="upou(file)"></p-fileUpload>
+    </form>
+  </div>
+</div>

@@ -21,7 +21,8 @@ export class EmpresaResolverGuard implements Resolve<Empresa> {
       id: null,
       nome: null,
       endereco: null,
-      cnpj: null
+      cnpj: null,
+      idArquivo: null
     });
   }
 

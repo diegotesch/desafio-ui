@@ -20,6 +20,7 @@ import {ConfirmationService} from 'primeng/api';
 import {CalendarModule} from 'primeng/calendar';
 import {DropdownModule} from 'primeng/dropdown';
 import {DataViewModule} from 'primeng/dataview';
+import {FileUploadModule} from 'primeng/fileupload';
 
 import { AppComponent } from './app.component';
 import { ListaEmpresasComponent } from './lista-empresas/lista-empresas.component';
@@ -35,6 +36,8 @@ import { FormEmpresaNovoComponent } from './form-empresa-novo/form-empresa-novo.
 import { ListaPessoasComponent } from './lista-pessoas/lista-pessoas.component';
 import { FormPessoaComponent } from './form-pessoa/form-pessoa.component';
 import { ListaFuncionariosEmpresaComponent } from './lista-funcionarios-empresa/lista-funcionarios-empresa.component';
+import { ImagemEmpresaUploadComponent } from './imagem-empresa-upload/imagem-empresa-upload.component';
+import { ImagesService } from './services/images.service';
 
 @NgModule({
   declarations: [
@@ -48,6 +51,7 @@ import { ListaFuncionariosEmpresaComponent } from './lista-funcionarios-empresa/
     ListaPessoasComponent,
     FormPessoaComponent,
     ListaFuncionariosEmpresaComponent,
+    ImagemEmpresaUploadComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,10 +74,12 @@ import { ListaFuncionariosEmpresaComponent } from './lista-funcionarios-empresa/
     CalendarModule,
     DropdownModule,
     DataViewModule,
+    FileUploadModule,
     routing
   ],
   providers: [
     EmpresaService,
+    ImagesService,
     ConfirmationService
   ],
   bootstrap: [AppComponent]
